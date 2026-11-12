@@ -97,15 +97,15 @@ export const ArtGallery: React.FC = () => {
                 {/* Polaroid Frame */}
                 <div className="relative rounded-2xl bg-garden-cream p-4 pb-5 shadow-polaroid border border-garden-border/80 transition-all duration-300 group-hover:shadow-soft-lg group-hover:-translate-y-1.5 cursor-pointer">
                   {/* Photo area */}
-                  <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-gradient-to-b from-garden-blush/40 to-garden-pink/60 flex flex-col items-center justify-center p-4 text-center border border-garden-border/50">
+                  <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-gradient-to-b from-garden-blush/40 to-garden-pink/60 flex flex-col items-center justify-center text-center border border-garden-border/50">
                     {item.imageUrl ? (
                       <img
                         src={item.imageUrl}
                         alt={item.caption}
-                        className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
-                      <div className="flex flex-col items-center justify-center space-y-3">
+                      <div className="flex flex-col items-center justify-center space-y-3 p-4">
                         <div className="p-3.5 rounded-full bg-garden-cream/90 border border-garden-border/70 shadow-sm">
                           <Camera className="w-6 h-6 text-garden-mauve" />
                         </div>

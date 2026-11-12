@@ -78,8 +78,7 @@ export const siteConfig: GardenConfig = {
     title: "Happy Birthday, Jaseena!",
     subtitle: "Today, the world gets a little more beautiful because it's your day.",
     handwrittenNote: "Made with a little sunshine and lots of flowers ♡",
-    // Replace this placeholder with Jaseena's actual image path when available
-    placeholderImage: "",
+    placeholderImage: "/photos/jaseena-hero.jpg",
   },
   gallery: {
     sectionTitle: "Her Little Art Gallery",
@@ -87,7 +86,7 @@ export const siteConfig: GardenConfig = {
     items: [
       {
         id: 1,
-        imageUrl: "",
+        imageUrl: "/photos/jaseena-cat.jpg",
         placeholderTitle: "Jaseena's Photo #1",
         caption: "Certified cutie behaviour.",
         sticker: "🌸",
@@ -95,7 +94,7 @@ export const siteConfig: GardenConfig = {
       },
       {
         id: 2,
-        imageUrl: "",
+        imageUrl: "/photos/jaseena-vampire.jpg",
         placeholderTitle: "Jaseena's Photo #2",
         caption: "Main character energy, obviously.",
         sticker: "✨",
@@ -103,7 +102,7 @@ export const siteConfig: GardenConfig = {
       },
       {
         id: 3,
-        imageUrl: "",
+        imageUrl: "/photos/jaseena-dreamy.jpg",
         placeholderTitle: "Jaseena's Photo #3",
         caption: "Too pretty to be real, honestly.",
         sticker: "🌻",
@@ -111,7 +110,7 @@ export const siteConfig: GardenConfig = {
       },
       {
         id: 4,
-        imageUrl: "",
+        imageUrl: "/photos/jaseena-chaos.jpg",
         placeholderTitle: "Jaseena's Photo #4",
         caption: "A little sunshine with a little chaos.",
         sticker: "💖",

@@ -133,16 +133,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
           </div>
 
           {/* Polaroid Card */}
-          <div className="relative rounded-2xl bg-garden-cream p-4 pb-6 shadow-polaroid border border-garden-border/80 transition-all duration-300 group-hover:shadow-soft-lg group-hover:-translate-y-1">
-            <div className="relative w-64 h-80 sm:w-72 sm:h-92 rounded-xl overflow-hidden bg-gradient-to-b from-garden-blush/60 to-garden-pink/60 flex flex-col items-center justify-center p-4 text-center border border-garden-border/60">
+          <div className="relative rounded-2xl bg-garden-cream p-3.5 pb-5 sm:p-4 sm:pb-6 shadow-polaroid border border-garden-border/80 transition-all duration-300 group-hover:shadow-soft-lg group-hover:-translate-y-1">
+            <div className="relative w-64 h-80 sm:w-72 sm:h-92 rounded-xl overflow-hidden bg-gradient-to-b from-garden-blush/60 to-garden-pink/60 flex flex-col items-center justify-center text-center border border-garden-border/60">
               {siteConfig.hero.placeholderImage ? (
                 <img
                   src={siteConfig.hero.placeholderImage}
                   alt="Jaseena"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
-                <div className="flex flex-col items-center justify-center space-y-3 px-3">
+                <div className="flex flex-col items-center justify-center space-y-3 px-3 p-4">
                   <div className="relative p-4 rounded-full bg-garden-cream/80 border border-garden-border shadow-sm">
                     <Sunflower size={44} className="text-garden-yellowDark" />
                   </div>
