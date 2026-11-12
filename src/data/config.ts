@@ -78,7 +78,7 @@ export const siteConfig: GardenConfig = {
     title: "Happy Birthday, Jaseena!",
     subtitle: "Today, the world gets a little more beautiful because it's your day.",
     handwrittenNote: "Made with a little sunshine and lots of flowers ♡",
-    placeholderImage: "/photos/jaseena-hero.jpg",
+    placeholderImage: "/photos/jaseena-cat.jpg",
   },
   gallery: {
     sectionTitle: "Her Little Art Gallery",
@@ -86,7 +86,7 @@ export const siteConfig: GardenConfig = {
     items: [
       {
         id: 1,
-        imageUrl: "/photos/jaseena-cat.jpg",
+        imageUrl: "/photos/jaseena-hero.jpg",
         placeholderTitle: "Jaseena's Photo #1",
         caption: "Certified cutie behaviour.",
         sticker: "🌸",
