@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../data/config';
-import { Sunflower, Blossom, LeafSprig, Sparkle, WashiTape } from './FloralDecorations';
+import { Sunflower, Blossom, LeafSprig, WashiTape } from './FloralDecorations';
 import { ChevronDown, Camera } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -49,12 +49,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
           <Blossom size={46} color="#FFFDF9" />
         </motion.div>
 
-        {/* Scattered soft sparkles */}
-        <div className="absolute top-28 left-[18%] animate-pulse-subtle">
-          <Sparkle size={18} color="#F6D77A" />
+        {/* Scattered soft blossoms */}
+        <div className="absolute top-28 left-[18%] opacity-60">
+          <Blossom size={18} color="#FFFDF9" />
         </div>
-        <div className="absolute top-36 right-[22%] animate-pulse-subtle delay-700">
-          <Sparkle size={16} color="#F6D77A" />
+        <div className="absolute top-36 right-[22%] opacity-60">
+          <Blossom size={16} />
         </div>
       </div>
 
@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
 
           {/* Washi tape on top */}
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-            <WashiTape text="pookie girl 🎀✨" />
+            <WashiTape text="pookie girl 🎀" />
           </div>
 
           {/* Polaroid Card */}
@@ -151,7 +151,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
                       Kuchupuchu 🎀
                     </p>
                     <p className="text-xs text-garden-mauve font-sans font-light">
-                      The birthday pookie herself ✨
+                      The birthday pookie herself 🌸
                     </p>
                   </div>
                   <div className="pt-2">

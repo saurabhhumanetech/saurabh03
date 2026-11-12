@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../data/config';
-import { Sunflower, LeafSprig, WashiTape, Sparkle, Blossom } from './FloralDecorations';
+import { Sunflower, LeafSprig, WashiTape, Blossom } from './FloralDecorations';
 import { Heart, Image, CheckCheck, X, ArrowLeft } from 'lucide-react';
 
 export const ConversationMemory: React.FC = () => {
@@ -64,11 +64,11 @@ export const ConversationMemory: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 mb-2"
           >
-            <Sparkle size={14} color="#754653" />
+            <Heart className="w-3.5 h-3.5 text-garden-rose fill-garden-rose/20" />
             <span className="font-serif italic text-sm tracking-wider uppercase text-garden-mauve">
               Chapter One
             </span>
-            <Sparkle size={14} color="#754653" />
+            <Heart className="w-3.5 h-3.5 text-garden-rose fill-garden-rose/20" />
           </motion.div>
 
           <motion.h2
@@ -102,7 +102,7 @@ export const ConversationMemory: React.FC = () => {
         >
           {/* Decorative Corner Flowers & Tape */}
           <div className="absolute -top-4 -left-3 z-30 transform -rotate-12">
-            <WashiTape text="Instagram DM ✨" />
+            <WashiTape text="Instagram DM 💌" />
           </div>
           <div className="absolute -top-6 -right-6 z-30 pointer-events-none">
             <Sunflower size={56} className="filter drop-shadow-sm rotate-12" />
@@ -129,7 +129,7 @@ export const ConversationMemory: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <h3 className="font-sans font-medium text-sm sm:text-base text-garden-rose">
-                      jaseenaacoree ✨
+                      jaseenaacoree 🌸
                     </h3>
                   </div>
                   <p className="text-[11px] font-sans text-garden-mauve">
@@ -240,7 +240,7 @@ export const ConversationMemory: React.FC = () => {
                   <span>Back</span>
                 </button>
 
-                <span className="font-serif italic text-xs text-garden-rose">First DM ✨</span>
+                <span className="font-serif italic text-xs text-garden-rose">First DM 💌</span>
 
                 <button
                   onClick={handleClose}

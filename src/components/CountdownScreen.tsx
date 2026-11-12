@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../data/config';
-import { Sunflower, Blossom, LeafSprig, Sparkle } from './FloralDecorations';
-import { Lock, Sparkles } from 'lucide-react';
+import { Sunflower, Blossom, LeafSprig } from './FloralDecorations';
+import { Lock, Heart } from 'lucide-react';
 
 interface CountdownScreenProps {
   onUnlock: () => void;
@@ -87,12 +87,12 @@ export const CountdownScreen: React.FC<CountdownScreenProps> = ({ onUnlock, isTe
           <Blossom size={36} color="#FFFDF9" />
         </motion.div>
 
-        {/* Ambient subtle sparkles */}
-        <div className="absolute top-1/3 left-1/4 animate-pulse-subtle">
-          <Sparkle size={18} color="#ECC055" />
+        {/* Ambient subtle blossoms */}
+        <div className="absolute top-1/3 left-1/4 opacity-50">
+          <Blossom size={18} color="#FFFDF9" />
         </div>
-        <div className="absolute top-2/3 right-1/4 animate-pulse-subtle delay-1000">
-          <Sparkle size={16} color="#ECC055" />
+        <div className="absolute top-2/3 right-1/4 opacity-50">
+          <Blossom size={16} />
         </div>
       </div>
 
@@ -122,10 +122,10 @@ export const CountdownScreen: React.FC<CountdownScreenProps> = ({ onUnlock, isTe
           </motion.div>
           <div className="absolute -top-1 -right-2">
             <motion.div
-              animate={{ scale: [1, 1.25, 1], rotate: [0, 15, 0] }}
+              animate={{ scale: [1, 1.2, 1], rotate: [0, 15, 0] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
-              <Sparkles className="h-6 w-6 text-garden-yellowDark" />
+              <Blossom size={22} color="#F6D77A" />
             </motion.div>
           </div>
         </div>
@@ -190,7 +190,7 @@ export const CountdownScreen: React.FC<CountdownScreenProps> = ({ onUnlock, isTe
                 className="mt-1 inline-flex items-center gap-2 rounded-full bg-garden-rose px-5 py-2.5 text-xs sm:text-sm font-medium text-garden-cream shadow-md transition-transform duration-200 hover:scale-105 hover:bg-[#633a46] active:scale-95"
               >
                 <span>Enter Garden Now (Bypass Countdown)</span>
-                <Sparkles className="h-4 w-4 text-garden-yellow" />
+                <Heart className="h-4 w-4 text-garden-yellow fill-garden-yellow" />
               </button>
             </div>
           </motion.div>

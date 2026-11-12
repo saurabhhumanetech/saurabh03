@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../data/config';
 import { Sunflower, LeafSprig, WaxFlowerSeal, Blossom, WashiTape } from './FloralDecorations';
-import { Mail, Sparkles, X } from 'lucide-react';
+import { Mail, Heart, X } from 'lucide-react';
 
 export const LetterSection: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -111,9 +111,9 @@ export const LetterSection: React.FC = () => {
 
                 {/* Tap to open hint */}
                 <p className="mt-4 font-serif italic text-xs sm:text-sm text-garden-mauve group-hover:text-garden-rose transition-colors flex items-center justify-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-garden-yellowDark" />
+                  <Heart className="w-3.5 h-3.5 text-garden-rose fill-garden-rose/30" />
                   <span>{letter.envelopeLabel}</span>
-                  <Sparkles className="w-3.5 h-3.5 text-garden-yellowDark" />
+                  <Heart className="w-3.5 h-3.5 text-garden-rose fill-garden-rose/30" />
                 </p>
               </motion.div>
             ) : (

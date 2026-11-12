@@ -84,7 +84,7 @@ export const siteConfig: GardenConfig = {
   },
   gallery: {
     sectionTitle: "Her Little Art Gallery",
-    sectionSubtitle: "Little frames of sunshine, chaos & charm ✨🎀",
+    sectionSubtitle: "Little frames of sunshine, chaos & charm 🌸🎀",
     items: [
       {
         id: 1,
@@ -99,7 +99,7 @@ export const siteConfig: GardenConfig = {
         imageUrl: "/photos/jaseena-vampire.jpg",
         placeholderTitle: "Photo #2",
         caption: "Main character energy, obviously.",
-        sticker: "✨😚",
+        sticker: "🌸😚",
         rotation: "rotate-3",
       },
       {
@@ -126,7 +126,7 @@ export const siteConfig: GardenConfig = {
     caption: "Who knew one random conversation would turn into so many little moments? ♡ 🥺",
     screenshotUrl: "/photos/jaseena-memory.jpg",
     chatSnippet: {
-      date: "The very first DM ✨",
+      date: "The very first DM 💌",
       messages: [
         {
           sender: "saurabh",
