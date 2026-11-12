@@ -115,7 +115,7 @@ export const ConversationMemory: React.FC = () => {
             {/* Conversation content: Real screenshot if provided, or aesthetic chat mockup preview */}
             {conversationMemory.screenshotUrl ? (
               <div
-                className="relative rounded-2xl overflow-hidden border border-garden-border/70 cursor-pointer group"
+                className="relative max-w-sm mx-auto rounded-3xl overflow-hidden border-2 border-garden-border/80 shadow-md cursor-pointer group bg-black/95"
                 onClick={() => setIsExpanded(true)}
               >
                 <img
@@ -123,9 +123,9 @@ export const ConversationMemory: React.FC = () => {
                   alt="First Instagram Conversation Screenshot"
                   className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-garden-rose/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="bg-garden-cream/90 px-3 py-1.5 rounded-full text-xs text-garden-rose font-medium shadow-sm">
-                    Click to enlarge screenshot
+                <div className="absolute inset-0 bg-garden-rose/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                  <span className="bg-garden-cream/95 px-3.5 py-1.5 rounded-full text-xs text-garden-rose font-medium shadow-sm flex items-center gap-1.5">
+                    <span>Click to view full screenshot</span>
                   </span>
                 </div>
               </div>
@@ -184,24 +184,30 @@ export const ConversationMemory: React.FC = () => {
       {/* Screenshot Expand Modal */}
       <AnimatePresence>
         {isExpanded && conversationMemory.screenshotUrl && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-garden-rose/50 backdrop-blur-sm">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-garden-rose/60 backdrop-blur-sm"
+            onClick={() => setIsExpanded(false)}
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="relative max-w-lg w-full rounded-3xl bg-garden-cream p-4 shadow-gift border border-garden-border"
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-sm w-full max-h-[92vh] flex flex-col items-center rounded-3xl bg-garden-cream p-3 shadow-gift border border-garden-border"
             >
               <button
                 onClick={() => setIsExpanded(false)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-garden-blush text-garden-rose"
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-garden-blush/90 text-garden-rose hover:bg-garden-blush transition-colors shadow-sm"
               >
                 <X className="w-5 h-5" />
               </button>
-              <img
-                src={conversationMemory.screenshotUrl}
-                alt="Instagram Conversation Screenshot"
-                className="w-full rounded-2xl"
-              />
+              <div className="w-full overflow-y-auto rounded-2xl max-h-[84vh]">
+                <img
+                  src={conversationMemory.screenshotUrl}
+                  alt="Instagram Conversation Screenshot"
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
             </motion.div>
           </div>
         )}

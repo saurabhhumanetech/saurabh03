@@ -124,8 +124,7 @@ export const siteConfig: GardenConfig = {
     sectionTitle: "Our Scrapbook Memory",
     heading: "Where this little story began...",
     caption: "Who knew one random conversation would turn into so many little moments? ♡",
-    // Replace with actual screenshot path when available
-    screenshotUrl: "",
+    screenshotUrl: "/photos/jaseena-memory.jpg",
     chatSnippet: {
       date: "The very first DM ✨",
       messages: [
