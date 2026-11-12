@@ -133,7 +133,7 @@ export const CountdownScreen: React.FC<CountdownScreenProps> = ({ onUnlock, isTe
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-garden-border bg-garden-blush/40 px-3.5 py-1 text-xs font-medium text-garden-rose mb-4">
           <Lock className="h-3 w-3 text-garden-mauve" />
-          <span className="tracking-widest uppercase text-[11px]">Unlocks 17 November, 12:00 AM IST</span>
+          <span className="tracking-widest uppercase text-[11px]">{siteConfig.countdown.unlockBadgeText}</span>
         </div>
 
         {/* Heading */}

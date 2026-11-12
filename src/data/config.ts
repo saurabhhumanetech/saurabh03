@@ -15,6 +15,7 @@ export interface GardenConfig {
     heading: string;
     subheading: string;
     note: string;
+    unlockBadgeText: string;
   };
   hero: {
     title: string;
@@ -67,12 +68,13 @@ export interface GardenConfig {
 export const siteConfig: GardenConfig = {
   recipientName: "Jaseena",
   senderName: "Saurabh",
-  // 17 November 2026, 12:00 AM IST (Asia/Kolkata)
-  birthdayDateIST: "2026-11-17T00:00:00+05:30",
+  // Target unlock time: 1:40 AM IST
+  birthdayDateIST: "2026-11-13T01:40:00+05:30",
   countdown: {
     heading: "Something special is blooming...",
     subheading: "A little garden is gently growing for you.",
     note: "A little surprise is waiting for you.",
+    unlockBadgeText: "Unlocks at 01:40 AM IST",
   },
   hero: {
     title: "Happy Birthday, Jaseena!",
@@ -181,24 +183,10 @@ export const siteConfig: GardenConfig = {
 };
 
 /**
- * Checks whether TEST MODE is active:
- * 1. Environment variable VITE_TEST_MODE === 'true'
- * 2. URL parameter ?test=true (allowed in dev or if VITE_ALLOW_QUERY_OVERRIDE === 'true')
+ * Checks whether TEST MODE is active.
+ * When false, the actual countdown is strictly enforced with zero bypasses.
  */
 export function isTestModeEnabled(): boolean {
-  // Check env variable
-  if (import.meta.env.VITE_TEST_MODE === 'true') {
-    return true;
-  }
-  // Optional URL query check in DEV only to prevent accidental bypass in production
-  if (import.meta.env.DEV) {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('test') === 'true' || params.get('preview') === 'true') {
-        return true;
-      }
-    }
-  }
-  return false;
+  return import.meta.env.VITE_TEST_MODE === 'true';
 }
 
