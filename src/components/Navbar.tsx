@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-1.5 text-xs sm:text-sm font-serif font-medium text-garden-rose pr-2 border-r border-garden-border/60 hover:opacity-80 transition-opacity"
         >
           <Sunflower size={20} className="animate-spin-slow" />
-          <span className="hidden xs:inline">Jaseena's Garden</span>
+          <span className="hidden xs:inline">Kuchupuchu's Garden 🎀</span>
         </a>
 
         {/* Navigation Anchors */}

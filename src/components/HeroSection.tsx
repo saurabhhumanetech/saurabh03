@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
         >
           <Sunflower size={18} className="animate-spin-slow" />
           <span className="font-serif italic text-xs sm:text-sm tracking-wide text-garden-rose">
-            17 November • A special day
+            17 November • Kuchupuchu's Special Day 🎀
           </span>
           <Sunflower size={18} className="animate-spin-slow" />
         </motion.div>
@@ -129,7 +129,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
 
           {/* Washi tape on top */}
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-            <WashiTape text="birthday girl 🌻" />
+            <WashiTape text="pookie girl 🎀✨" />
           </div>
 
           {/* Polaroid Card */}
@@ -138,7 +138,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
               {siteConfig.hero.placeholderImage ? (
                 <img
                   src={siteConfig.hero.placeholderImage}
-                  alt="Jaseena"
+                  alt="Kuchupuchu"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
@@ -148,10 +148,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
                   </div>
                   <div className="space-y-1">
                     <p className="font-serif italic text-lg sm:text-xl text-garden-rose font-medium">
-                      Jaseena
+                      Kuchupuchu 🎀
                     </p>
                     <p className="text-xs text-garden-mauve font-sans font-light">
-                      The birthday girl herself ✨
+                      The birthday pookie herself ✨
                     </p>
                   </div>
                   <div className="pt-2">
@@ -166,8 +166,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreClick }) => {
 
             {/* Polaroid caption */}
             <div className="mt-3.5 flex items-center justify-center gap-1.5">
-              <span className="font-handwritten text-xl text-garden-rose">
-                Queen of Sunshine & Chaos ♡
+              <span className="font-handwritten text-xl sm:text-2xl text-garden-rose">
+                Queen of Sunshine, Chaos & My Whole Heart 🥺💖
               </span>
             </div>
           </div>

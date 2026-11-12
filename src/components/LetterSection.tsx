@@ -69,7 +69,7 @@ export const LetterSection: React.FC = () => {
               >
                 {/* Washi tape on top */}
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                  <WashiTape text="For Jaseena 💌" />
+                  <WashiTape text="For Kuchupuchu 💌🎀" />
                 </div>
 
                 {/* Envelope Body */}
@@ -91,7 +91,7 @@ export const LetterSection: React.FC = () => {
                   {/* Envelope Front Details */}
                   <div className="relative z-10 flex flex-col items-center text-center px-6">
                     <p className="font-handwritten text-3xl text-garden-rose mb-1">
-                      Dear Jaseena
+                      Dear Kuchupuchu 🥺💖
                     </p>
                     <p className="font-serif italic text-xs text-garden-mauve tracking-wide">
                       A little note written from the heart
@@ -128,7 +128,7 @@ export const LetterSection: React.FC = () => {
               >
                 {/* Washi Tape styling at top */}
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30">
-                  <WashiTape text="A letter for Jaseena 🌻" />
+                  <WashiTape text="A letter for Kuchupuchu 🌻💋" />
                 </div>
 
                 {/* Decorative Floral Accents on Letter Paper */}

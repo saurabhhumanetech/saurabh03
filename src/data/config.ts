@@ -66,7 +66,7 @@ export interface GardenConfig {
 }
 
 export const siteConfig: GardenConfig = {
-  recipientName: "Jaseena",
+  recipientName: "Kuchupuchu",
   senderName: "Saurabh",
   // Target unlock time: 1:40 AM IST
   birthdayDateIST: "2026-11-13T01:40:00+05:30",
@@ -77,45 +77,45 @@ export const siteConfig: GardenConfig = {
     unlockBadgeText: "Unlocks at 01:40 AM IST",
   },
   hero: {
-    title: "Happy Birthday, Jaseena!",
-    subtitle: "Today, the world gets a little more beautiful because it's your day.",
-    handwrittenNote: "Made with a little sunshine and lots of flowers ♡",
+    title: "Happy Birthday, Kuchupuchu! 🎀😘",
+    subtitle: "Today, the world gets a little more beautiful because it's your day, pookie 🥺💖",
+    handwrittenNote: "Made with lots of sunshine, tight hugs and love ♡ 💋",
     placeholderImage: "/photos/jaseena-cat.jpg",
   },
   gallery: {
     sectionTitle: "Her Little Art Gallery",
-    sectionSubtitle: "Little frames of sunshine, chaos & charm ✨",
+    sectionSubtitle: "Little frames of sunshine, chaos & charm ✨🎀",
     items: [
       {
         id: 1,
         imageUrl: "/photos/jaseena-hero.jpg",
-        placeholderTitle: "Jaseena's Photo #1",
+        placeholderTitle: "Photo #1",
         caption: "Certified cutie behaviour.",
-        sticker: "🌸",
+        sticker: "🌸🥺",
         rotation: "-rotate-2",
       },
       {
         id: 2,
         imageUrl: "/photos/jaseena-vampire.jpg",
-        placeholderTitle: "Jaseena's Photo #2",
+        placeholderTitle: "Photo #2",
         caption: "Main character energy, obviously.",
-        sticker: "✨",
+        sticker: "✨💋",
         rotation: "rotate-3",
       },
       {
         id: 3,
         imageUrl: "/photos/jaseena-dreamy.jpg",
-        placeholderTitle: "Jaseena's Photo #3",
+        placeholderTitle: "Photo #3",
         caption: "Too pretty to be real, honestly.",
-        sticker: "🌻",
+        sticker: "🌻🥰",
         rotation: "-rotate-1",
       },
       {
         id: 4,
         imageUrl: "/photos/jaseena-chaos.jpg",
-        placeholderTitle: "Jaseena's Photo #4",
+        placeholderTitle: "Photo #4",
         caption: "A little sunshine with a little chaos.",
-        sticker: "💖",
+        sticker: "💖🎀",
         rotation: "rotate-2",
       },
     ],
@@ -123,30 +123,30 @@ export const siteConfig: GardenConfig = {
   conversationMemory: {
     sectionTitle: "Our Scrapbook Memory",
     heading: "Where this little story began...",
-    caption: "Who knew one random conversation would turn into so many little moments? ♡",
+    caption: "Who knew one random conversation would turn into so many little moments? ♡ 🥺",
     screenshotUrl: "/photos/jaseena-memory.jpg",
     chatSnippet: {
       date: "The very first DM ✨",
       messages: [
         {
           sender: "saurabh",
-          text: "Hey! Couldn't help but notice your bio haha 😂",
-          time: "10:14 PM",
+          text: "Bruuh u lowkey look like jasmine 😩🤭",
+          time: "4:05 PM",
         },
         {
           sender: "jaseena",
-          text: "Hahaha wait, really? 😭 Don't judge my chaos era yet!",
-          time: "10:16 PM",
+          text: "Who's jasmine 😭",
+          time: "4:06 PM",
         },
         {
           sender: "saurabh",
-          text: "Too late, standard procedure requires at least 8 hours of chaotic banter now 🌻",
-          time: "10:17 PM",
+          text: "Jasmine 😩 But without jas 🤭👀",
+          time: "4:06 PM",
         },
         {
           sender: "jaseena",
-          text: "Deal! Just so you know, my jellyfish heart cannot take boring convos 🪼✨",
-          time: "10:18 PM",
+          text: "Whooo areee youu 😭",
+          time: "4:07 PM",
         },
       ],
     },
@@ -154,16 +154,16 @@ export const siteConfig: GardenConfig = {
   gift: {
     sectionTitle: "The Birthday Gift 🎁",
     teaserText: "A little something for you...",
-    boxLabel: "Open to see your birthday gift ♡",
-    revealedMessage: "me hi hu aapka birthday gift, cutieee ☁️😭",
-    revealedCaption: "Your gift is a little bit of sunshine!",
+    boxLabel: "Open to see your birthday gift ♡ 🎀",
+    revealedMessage: "me hi hu aapka birthday gift, kuchupuchuuu ☁️😭💋",
+    revealedCaption: "Your gift is a whole lot of love & sunshine! 🎀💖",
   },
   letter: {
     sectionTitle: "A Little Letter for You 💌",
     heading: "One last little thing...",
     subheading: "There's something I wanted to tell you.",
-    envelopeLabel: "Click the flower seal to open ♡",
-    salutation: "Hey Jaseena,",
+    envelopeLabel: "Click the flower seal to open ♡ 💋",
+    salutation: "Hey Kuchupuchu, 🥺💖",
     paragraphs: [
       "It's honestly funny how we only started talking a little while ago, and yet, somehow, you've managed to make these past few days feel a little brighter.",
       "I didn't really expect a random conversation to turn into something this nice, but here we are.",
@@ -172,12 +172,12 @@ export const siteConfig: GardenConfig = {
       "I hope this new year of your life brings you countless reasons to smile, beautiful opportunities, unexpected adventures and all the happiness you deserve.",
       "Keep being your wonderfully chaotic self. Never lose that little spark that makes you, YOU.",
     ],
-    signOff: "Happy Birthday once again, cutieee! 🌻",
-    sender: "With lots of sunshine,\nSaurabh ♡",
+    signOff: "Happy Birthday once again, cutieee pookie! 🌻💋",
+    sender: "With lots of sunshine & love,\nSaurabh ♡ 🎀",
   },
   footer: {
     quote: "Some people are like flowers. They make everything around them a little brighter.",
-    madeFor: "Made especially for Jaseena 🌻",
+    madeFor: "Made especially for Kuchupuchu 🌻🎀💋",
   },
 };
 
