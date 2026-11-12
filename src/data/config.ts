@@ -77,9 +77,9 @@ export const siteConfig: GardenConfig = {
     unlockBadgeText: "Unlocks at 01:40 AM IST",
   },
   hero: {
-    title: "Happy Birthday, Kuchupuchu! 🎀😘",
+    title: "Happy Birthday, Kuchupuchu! 🎀😚",
     subtitle: "Today, the world gets a little more beautiful because it's your day, pookie 🥺💖",
-    handwrittenNote: "Made with lots of sunshine, tight hugs and love ♡ 💋",
+    handwrittenNote: "Made with lots of sunshine, tight hugs and love ♡ 😚",
     placeholderImage: "/photos/jaseena-cat.jpg",
   },
   gallery: {
@@ -99,7 +99,7 @@ export const siteConfig: GardenConfig = {
         imageUrl: "/photos/jaseena-vampire.jpg",
         placeholderTitle: "Photo #2",
         caption: "Main character energy, obviously.",
-        sticker: "✨💋",
+        sticker: "✨😚",
         rotation: "rotate-3",
       },
       {
@@ -155,14 +155,14 @@ export const siteConfig: GardenConfig = {
     sectionTitle: "The Birthday Gift 🎁",
     teaserText: "A little something for you...",
     boxLabel: "Open to see your birthday gift ♡ 🎀",
-    revealedMessage: "me hi hu aapka birthday gift, kuchupuchuuu ☁️😭💋",
+    revealedMessage: "me hi hu aapka birthday gift, kuchupuchuuu ☁️😭😚",
     revealedCaption: "Your gift is a whole lot of love & sunshine! 🎀💖",
   },
   letter: {
     sectionTitle: "A Little Letter for You 💌",
     heading: "One last little thing...",
     subheading: "There's something I wanted to tell you.",
-    envelopeLabel: "Click the flower seal to open ♡ 💋",
+    envelopeLabel: "Click the flower seal to open ♡ 😚",
     salutation: "Hey Kuchupuchu, 🥺💖",
     paragraphs: [
       "It's honestly funny how we only started talking a little while ago, and yet, somehow, you've managed to make these past few days feel a little brighter.",
@@ -172,12 +172,12 @@ export const siteConfig: GardenConfig = {
       "I hope this new year of your life brings you countless reasons to smile, beautiful opportunities, unexpected adventures and all the happiness you deserve.",
       "Keep being your wonderfully chaotic self. Never lose that little spark that makes you, YOU.",
     ],
-    signOff: "Happy Birthday once again, cutieee pookie! 🌻💋",
+    signOff: "Happy Birthday once again, cutieee pookie! 🌻😚",
     sender: "With lots of sunshine & love,\nSaurabh ♡ 🎀",
   },
   footer: {
     quote: "Some people are like flowers. They make everything around them a little brighter.",
-    madeFor: "Made especially for Kuchupuchu 🌻🎀💋",
+    madeFor: "Made especially for Kuchupuchu 🌻🎀😚",
   },
 };
 

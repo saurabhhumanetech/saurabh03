@@ -1,11 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig, type GalleryItem } from '../data/config';
 import { Sunflower, Blossom, LeafSprig, WashiTape } from './FloralDecorations';
-import { Camera, X, ZoomIn } from 'lucide-react';
+import { Camera, X, ZoomIn, ArrowLeft } from 'lucide-react';
 
 export const ArtGallery: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryItem | null>(null);
+
+  // Digital device back button (Android back swipe / browser back) handler
+  const handleClose = useCallback(() => {
+    setSelectedPhoto(null);
+    if (window.history.state?.modal === 'photo-gallery') {
+      window.history.back();
+    }
+  }, []);
+
+  const handleOpenPhoto = (item: GalleryItem) => {
+    setSelectedPhoto(item);
+    window.history.pushState({ modal: 'photo-gallery', id: item.id }, '');
+  };
+
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      // When user presses device back button or swipes back
+      if (!e.state || e.state.modal !== 'photo-gallery') {
+        setSelectedPhoto(null);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedPhoto) {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedPhoto, handleClose]);
 
   return (
     <section id="gallery" className="relative w-full py-20 px-4 sm:px-6 bg-garden-pink/60">
@@ -70,7 +106,7 @@ export const ArtGallery: React.FC = () => {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.8, delay: index * 0.15 }}
                 className={`relative group ${item.rotation || ''} hover:rotate-0 transition-transform duration-300`}
-                onClick={() => setSelectedPhoto(item)}
+                onClick={() => handleOpenPhoto(item)}
               >
                 {/* Washi Tape styling */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
@@ -147,25 +183,40 @@ export const ArtGallery: React.FC = () => {
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedPhoto && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-garden-rose/40 backdrop-blur-sm">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-garden-rose/60 backdrop-blur-md overflow-y-auto"
+            onClick={handleClose}
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 15 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-lg rounded-3xl bg-garden-cream p-6 sm:p-8 shadow-gift border border-garden-border"
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-lg rounded-3xl bg-garden-cream p-4 sm:p-7 shadow-gift border-2 border-garden-border my-auto"
             >
-              {/* Close button */}
-              <button
-                onClick={() => setSelectedPhoto(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-garden-blush/60 text-garden-rose hover:bg-garden-blush transition-colors"
-                title="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              {/* Prominent Top Navigation Bar in Modal */}
+              <div className="flex items-center justify-between border-b border-garden-border/60 pb-3 mb-4">
+                <button
+                  onClick={handleClose}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-garden-blush/70 hover:bg-garden-blush px-3.5 py-1.5 text-xs sm:text-sm font-medium text-garden-rose transition-all active:scale-95 shadow-xs"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back to Gallery</span>
+                </button>
 
-              <div className="text-center pt-2">
-                <div className="relative aspect-[4/5] max-h-[55vh] w-full mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-garden-blush/40 to-garden-pink/60 flex items-center justify-center border border-garden-border/80 mb-5">
+                <button
+                  onClick={handleClose}
+                  aria-label="Close modal"
+                  className="p-2 rounded-full bg-garden-blush/70 hover:bg-garden-blush text-garden-rose transition-all active:scale-95 shadow-xs"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Photo Area */}
+              <div className="text-center">
+                <div className="relative aspect-[4/5] max-h-[58vh] w-full mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-garden-blush/40 to-garden-pink/60 flex items-center justify-center border border-garden-border/80 mb-4 shadow-sm">
                   {selectedPhoto.imageUrl ? (
                     <img
                       src={selectedPhoto.imageUrl}
@@ -178,9 +229,6 @@ export const ArtGallery: React.FC = () => {
                       <p className="font-serif italic text-xl text-garden-rose font-medium">
                         {selectedPhoto.placeholderTitle}
                       </p>
-                      <p className="font-sans text-xs text-garden-mauve max-w-xs">
-                        This placeholder will display Jaseena's photograph once added in the config or assets folder.
-                      </p>
                     </div>
                   )}
                 </div>
@@ -188,9 +236,18 @@ export const ArtGallery: React.FC = () => {
                 <p className="font-serif text-xl sm:text-2xl text-garden-rose italic font-medium mb-1">
                   "{selectedPhoto.caption}"
                 </p>
-                <p className="font-handwritten text-2xl text-garden-mauve">
-                  A little piece of sunshine ♡
+                <p className="font-handwritten text-2xl text-garden-mauve mb-4">
+                  A little piece of sunshine {selectedPhoto.sticker || '♡'}
                 </p>
+
+                {/* Bottom Touch-Friendly Back Button */}
+                <button
+                  onClick={handleClose}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-garden-rose text-garden-cream px-6 py-2.5 text-xs sm:text-sm font-medium shadow-sm hover:bg-[#633a46] active:scale-95 transition-all"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Close & Return to Garden</span>
+                </button>
               </div>
             </motion.div>
           </div>

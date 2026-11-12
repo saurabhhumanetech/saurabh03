@@ -128,7 +128,7 @@ export const LetterSection: React.FC = () => {
               >
                 {/* Washi Tape styling at top */}
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30">
-                  <WashiTape text="A letter for Kuchupuchu 🌻💋" />
+                  <WashiTape text="A letter for Kuchupuchu 🌻😚" />
                 </div>
 
                 {/* Decorative Floral Accents on Letter Paper */}

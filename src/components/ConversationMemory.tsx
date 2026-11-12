@@ -1,12 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../data/config';
 import { Sunflower, LeafSprig, WashiTape, Sparkle, Blossom } from './FloralDecorations';
-import { Heart, Image, CheckCheck, X } from 'lucide-react';
+import { Heart, Image, CheckCheck, X, ArrowLeft } from 'lucide-react';
 
 export const ConversationMemory: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const { conversationMemory } = siteConfig;
+
+  const handleClose = useCallback(() => {
+    setIsExpanded(false);
+    if (window.history.state?.modal === 'conversation-screenshot') {
+      window.history.back();
+    }
+  }, []);
+
+  const handleOpen = () => {
+    setIsExpanded(true);
+    window.history.pushState({ modal: 'conversation-screenshot' }, '');
+  };
+
+  useEffect(() => {
+    const handlePopState = (e: PopStateEvent) => {
+      if (!e.state || e.state.modal !== 'conversation-screenshot') {
+        setIsExpanded(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isExpanded) {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isExpanded, handleClose]);
 
   return (
     <section id="story" className="relative w-full py-20 px-4 sm:px-6 bg-garden-pink">
@@ -95,7 +129,7 @@ export const ConversationMemory: React.FC = () => {
                 <div>
                   <div className="flex items-center gap-1.5">
                     <h3 className="font-sans font-medium text-sm sm:text-base text-garden-rose">
-                      jaseena ✨
+                      jaseenaacoree ✨
                     </h3>
                   </div>
                   <p className="text-[11px] font-sans text-garden-mauve">
@@ -116,7 +150,7 @@ export const ConversationMemory: React.FC = () => {
             {conversationMemory.screenshotUrl ? (
               <div
                 className="relative max-w-sm mx-auto rounded-3xl overflow-hidden border-2 border-garden-border/80 shadow-md cursor-pointer group bg-black/95"
-                onClick={() => setIsExpanded(true)}
+                onClick={handleOpen}
               >
                 <img
                   src={conversationMemory.screenshotUrl}
@@ -125,7 +159,7 @@ export const ConversationMemory: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-garden-rose/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
                   <span className="bg-garden-cream/95 px-3.5 py-1.5 rounded-full text-xs text-garden-rose font-medium shadow-sm flex items-center gap-1.5">
-                    <span>Click to view full screenshot</span>
+                    <span>Click to view full screenshot 🔍</span>
                   </span>
                 </div>
               </div>
@@ -185,29 +219,55 @@ export const ConversationMemory: React.FC = () => {
       <AnimatePresence>
         {isExpanded && conversationMemory.screenshotUrl && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-garden-rose/60 backdrop-blur-sm"
-            onClick={() => setIsExpanded(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-garden-rose/65 backdrop-blur-md overflow-y-auto"
+            onClick={handleClose}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 15 }}
+              transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-sm w-full max-h-[92vh] flex flex-col items-center rounded-3xl bg-garden-cream p-3 shadow-gift border border-garden-border"
+              className="relative max-w-sm w-full max-h-[92vh] flex flex-col rounded-3xl bg-garden-cream p-4 shadow-gift border-2 border-garden-border my-auto"
             >
-              <button
-                onClick={() => setIsExpanded(false)}
-                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-garden-blush/90 text-garden-rose hover:bg-garden-blush transition-colors shadow-sm"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <div className="w-full overflow-y-auto rounded-2xl max-h-[84vh]">
+              {/* Prominent Top Bar */}
+              <div className="flex items-center justify-between border-b border-garden-border/60 pb-2.5 mb-3">
+                <button
+                  onClick={handleClose}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-garden-blush/70 hover:bg-garden-blush px-3 py-1.5 text-xs font-medium text-garden-rose transition-all active:scale-95 shadow-xs"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back</span>
+                </button>
+
+                <span className="font-serif italic text-xs text-garden-rose">First DM ✨</span>
+
+                <button
+                  onClick={handleClose}
+                  aria-label="Close screenshot"
+                  className="p-1.5 rounded-full bg-garden-blush/70 hover:bg-garden-blush text-garden-rose transition-all active:scale-95 shadow-xs"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Scrollable image container */}
+              <div className="w-full overflow-y-auto rounded-2xl max-h-[75vh] border border-garden-border/80 mb-3">
                 <img
                   src={conversationMemory.screenshotUrl}
                   alt="Instagram Conversation Screenshot"
                   className="w-full h-auto rounded-2xl"
                 />
               </div>
+
+              {/* Bottom Close Button */}
+              <button
+                onClick={handleClose}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-garden-rose text-garden-cream px-4 py-2 text-xs font-medium shadow-xs hover:bg-[#633a46] active:scale-95 transition-all"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Return to Garden</span>
+              </button>
             </motion.div>
           </div>
         )}
